@@ -37,7 +37,7 @@ window.onload = function(){
 // xmlDOC es el documento leido XML. 
 function gestionarXml(dadesXml){
  var xmlDoc = dadesXml.responseXML; //Parse XML to xmlDoc
-
+//Radio1
     var tituloRadio = xmlDoc.getElementsByTagName("title")[0].innerHTML;
     var opcionesRadio = [];
     var nopt = xmlDoc.getElementById("q_01").getElementsByTagName('option').length;
@@ -48,8 +48,8 @@ function gestionarXml(dadesXml){
     //ANSWER
     var answRadio1 = xmlDoc.getElementById("q_01").getElementsByTagName('answer')[0].innerHTML;
 
-
- var tituloRadio = xmlDoc.getElementsByTagName("title")[1].innerHTML;
+//Radio2
+    var tituloRadio = xmlDoc.getElementsByTagName("title")[1].innerHTML;
     var opcionesRadio = [];
     var nopt = xmlDoc.getElementById("q_02").getElementsByTagName('option').length;
     for (i = 0; i < nopt; i++) {
@@ -58,6 +58,14 @@ function gestionarXml(dadesXml){
     ponerDatosRadio(tituloRadio, "q2", opcionesRadio, "radioDiv2");
     //ANSWER
     var answRadio2 = xmlDoc.getElementById("q_02").getElementsByTagName('answer')[0].innerHTML;
+//end of radio's
+//TEXT
+document.getElementById("q3").innerHTML = xmlDoc.getElementsByTagName("title")[2].innerHTML;
+var  answText1 = xmlDoc.getElementById("q_03").getElementsByTagName('answer')[0].innerHTML;
+
+document.getElementById("q4").innerHTML = xmlDoc.getElementsByTagName("title")[3].innerHTML;
+var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0].innerHTML;
+
 
 }
 
