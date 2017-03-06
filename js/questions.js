@@ -37,15 +37,14 @@ window.onload = function(){
 // xmlDOC es el documento leido XML. 
 function gestionarXml(dadesXml){
  var xmlDoc = dadesXml.responseXML; //Parse XML to xmlDoc
- 
+ var inpt = document.createElement("input");
    /*Pregunta tipo 'radio' nº 1.*/
   document.getElementById('q_01').innerHTML=xmlDoc.getElementsByTagName("title")[0].innerHTML;
   var res_rad_1 = xmlDoc.getElementById("q_01").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select=document.getElementById("in_1");
   var nopciones = xmlDoc.getElementById("q_01").getElementsByTagName("option").length;
-  for (i = 0; i < nopciones; i++)
-  { 
-  var inpt = document.createElement("input");
+  for (i = 0; i < nopciones; i++){ 
+    inpt = document.createElement("input");
     inpt.type = xmlDoc.getElementsByTagName("type")[0].innerHTML;
     inpt.value=i+1;
     inpt.name=inpt.type;
