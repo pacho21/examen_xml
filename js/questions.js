@@ -38,7 +38,7 @@ window.onload = function(){
 function gestionarXml(dadesXml){
  var xmlDoc = dadesXml.responseXML; //Parse XML to xmlDoc
 
-  var tituloRadio = xmlDoc.getElementsByTagName("title")[0].innerHTML;
+    var tituloRadio = xmlDoc.getElementsByTagName("title")[0].innerHTML;
     var opcionesRadio = [];
     var nopt = xmlDoc.getElementById("q_01").getElementsByTagName('option').length;
     for (i = 0; i < nopt; i++) {
@@ -46,8 +46,18 @@ function gestionarXml(dadesXml){
     }
     ponerDatosRadio(tituloRadio, "q1", opcionesRadio, "radioDiv1");
     //ANSWER
-var   answRadio1 = xmlDoc.getElementById("q_01").getElementsByTagName('answer')[0].innerHTML;
+    var answRadio1 = xmlDoc.getElementById("q_01").getElementsByTagName('answer')[0].innerHTML;
 
+
+ var tituloRadio = xmlDoc.getElementsByTagName("title")[1].innerHTML;
+    var opcionesRadio = [];
+    var nopt = xmlDoc.getElementById("q_02").getElementsByTagName('option').length;
+    for (i = 0; i < nopt; i++) {
+        opcionesRadio[i] = xmlDoc.getElementById("q_02").getElementsByTagName('option')[i].innerHTML;
+    }
+    ponerDatosRadio(tituloRadio, "q2", opcionesRadio, "radioDiv2");
+    //ANSWER
+    var answRadio2 = xmlDoc.getElementById("q_02").getElementsByTagName('answer')[0].innerHTML;
 
 }
 
