@@ -44,12 +44,13 @@ function gestionarXml(dadesXml){
     for (i = 0; i < nopt; i++) {
         opcionesRadio[i] = xmlDoc.getElementById("q_01").getElementsByTagName('option')[i].innerHTML;
     }
-    ponerDatosRadio(tituloRadio, "in_1", opcionesRadio);
+    ponerDatosRadio(tituloRadio, "in_1", opcionesRadio,"radio");
     //ANSWER
     var answRadio1 = xmlDoc.getElementById("q_01").getElementsByTagName('answer')[0].innerHTML;
 
-    function ponerDatosRadio(tituloRadio, IDposicion, opciones) {
+function ponerDatosRadio(tituloRadio, IDposicion, opciones, divID) {
     document.getElementById(IDposicion).innerHTML = tituloRadio;
+    var radioContainer = document.getElementById(divID);
 
     for (i = 0; i < opciones.length; i++) {
         var input = document.createElement("input");
