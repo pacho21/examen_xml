@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE questions  SYSTEM "question.dtd">
+<questions>
+<question id="q_01">
+   <type>radio</type>
+    <title>1.- ¿Cómo se llama el gato que come lasaña? :</title>
+    <option>a) Garfield   	</option>
+    <option>b) Tom </option>
+    <option>c) Doraemon </option>
+    <option>d) Hello Kitty</option>
+  <answer>0</answer>
+</question>
+
+<question id="q_02">
+  <type>radio</type>
+  <title>1.-¿Cómo se llama el gato que persigue a Jerry? :</title>
+  <option>a) Heidi </option>
+  <option>b) Marco </option>
+  <option>c) Tom </option>
+  <option>d) Nadie persigue a Jerry </option>
+  <answer>3</answer>
+</question>
+
+<question id="q_03">
+  <type>text</type>
+  <title>¿Tiene memoria Dory?</title>
+  <answer>no</answer>
+</question>
+
+<question id="q_04">
+  <type>text</type>
+  <title>¿Quién tiene un bolsillo mágico?</title>
+  <answer>Doraemon</answer>
+</question>
+
+<question id="q_05">
+  <type>checkbox</type>
+  <title> ¿Existe vida antes del café?:</title>
+  <option>a) Sí </option>
+  <option>b) No </option>
+  <option>c) No lo sé porque soy un fracasado que toma té </option>
+  <answer>2</answer>
+</question>
+
+<question id="q_06">
+  <type>checkbox</type>
+  <title> ¿Cuál es la primera causa del divorcio?:</title>
+  <option>a) El cambio climático</option>
+  <option>b) El matrimonio</option>
+  <option>c) Las enfermedades</option>
+  <answer>2</answer>
+</question>
+
+<question id="q_07">
+  <type>select</type>
+  <title>¿Cuál de estas es marca de ordenadores?</title>
+  <option>a) Acer </option>
+  <option>b) Donuts </option>
+  <option>c) HP </option>
+  <option>d) Mc Donalds </option>
+  <answer>1</answer>
+  <answer>3</answer>
+</question>
+
+<question id="q_08">
+  <type>select</type>
+  <title>¿Qué es lo que todo el mundo hace al despertar?</title>
+  <option>a) Llorar </option>
+  <option>b) Abrir los ojos </option>
+  <option>c) Dormirse otra vez</option>
+  <option>d) Apagar la alarma </option>
+  <answer>2</answer>
+</question>
+
+<question id="q_09">
+  <type>multiple</type>
+  <title> ¿Cuál de estas son marcas de coche? </title>
+  <option>a) Audi </option>
+  <option>b) Mercedes </option>
+  <option>c) Benz </option>
+  <option>d) Suzuki </option>
+  <answer>1</answer>
+  <answer>2</answer>
+  <answer>4</answer>
+</question>  	
+
+<question id="q_10">
+  <type>multiple</type>
+  <title> ¿Cuáles de estos nombres pertenecen a actores?</title>
+  <option>a) Mariano Rajoy</option>
+  <option>b) Nacho Vidal</option>
+  <option>c) Penélope Cruz</option>
+  <option>d) Florentino Pérez</option>
+  <answer>2</answer>
+  <answer>3</answer>
+</question>  	
+</questions>
