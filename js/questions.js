@@ -48,7 +48,6 @@ function gestionarXml(dadesXml){
     inpt.type = xmlDoc.getElementsByTagName("type")[0].innerHTML;
     inpt.value=i+1;
     inpt.name=inpt.type;
-    select.appendChild(inpt.value);
     select.innerHTML += xmlDoc.getElementById("q_01").getElementsByTagName("option")[i].innerHTML;
     select.innerHTML+="<br/>";
   }
