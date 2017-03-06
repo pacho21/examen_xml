@@ -37,20 +37,35 @@ window.onload = function(){
 // xmlDOC es el documento leido XML. 
 function gestionarXml(dadesXml){
  var xmlDoc = dadesXml.responseXML; //Parse XML to xmlDoc
- var inpt = document.createElement("input");
-   /*Pregunta tipo 'radio' nº 1.*/
-  document.getElementById('q_01').innerHTML=xmlDoc.getElementsByTagName("title")[0].innerHTML;
-  var res_rad_1 = xmlDoc.getElementById("q_01").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
-  select=document.getElementById("in_1");
-  var nopciones = xmlDoc.getElementById("q_01").getElementsByTagName("option").length;
-  for (i = 0; i < nopciones; i++){ 
-    inpt = document.createElement("input");
-    inpt.type = xmlDoc.getElementsByTagName("type")[0].innerHTML;
-    inpt.value=i+1;
-    inpt.name=inpt.type;
-    select.innerHTML += xmlDoc.getElementById("q_01").getElementsByTagName("option")[i].innerHTML;
-    select.innerHTML+="<br/>";
-  }
+
+    var tituloRadio = xmlDoc.getElementsByTagName("title")[0].innerHTML;
+    var opcionesRadio = [];
+    var nopt = xmlDoc.getElementById("q_01").getElementsByTagName('option').length;
+    for (i = 0; i < nopt; i++) {
+        opcionesRadio[i] = xmlDoc.getElementById("q_01").getElementsByTagName('option')[i].innerHTML;
+    }
+    ponerDatosRadio(tituloRadio, "in_1", opcionesRadio);
+    //ANSWER
+    var answRadio1 = xmlDoc.getElementById("q_01").getElementsByTagName('answer')[0].innerHTML;
+
+    function ponerDatosRadio(tituloRadio, IDposicion, opciones) {
+    document.getElementById(IDposicion).innerHTML = tituloRadio;
+
+    for (i = 0; i < opciones.length; i++) {
+        var input = document.createElement("input");
+        var label = document.createElement("label");
+        label.innerHTML = opciones[i];
+        label.setAttribute("for", "rad_" + i + divID);
+        input.id = "rad_" + i + divID;
+        input.type = "radio";
+        input.name = "rad" + divID;
+        radioContainer.appendChild(input);
+        radioContainer.appendChild(label);
+        radioContainer.appendChild(document.createElement("br"));
+    }
+
+}
+
 }
 
 //****************************************************************************************************
