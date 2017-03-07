@@ -19,8 +19,8 @@ var answMult2 = [];
 window.onload = function(){ 
 
  //CORREGIR al apretar el botón
- formElement=document.getElementById('myform');
- formElement.onsubmit=function(){
+ formElement=document.getElementById("butCorregir");
+  formElement.onclick=function(){
    inicializar();
    if (comprobarContestadas()){
     corregir();
