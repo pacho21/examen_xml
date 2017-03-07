@@ -67,19 +67,18 @@ document.getElementById("q4").innerHTML = xmlDoc.getElementsByTagName("title")[3
 var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0].innerHTML;
 
 //checkbox
-var tituloCheckbox = xmlDoc.getElementsByTagName("title")[4].innerHTML;
+	var tituloCheckbox = xmlDoc.getElementsByTagName("title")[4].innerHTML;
     var opcionesCheckbox = [];
     var nopt = xmlDoc.getElementById("q_05").getElementsByTagName('option').length;
-    var answCheck1=[];
+    var answCheck1;
     for (i = 0; i < nopt; i++) {
         opcionesCheckbox[i] = xmlDoc.getElementById("q_05").getElementsByTagName('option')[i].innerHTML;
     }
     ponerDatosCheckbox(tituloCheckbox, "q5", opcionesCheckbox, "checkBoxDiv1");
     //ANSWER
-    var nres = xmlDoc.getElementById("q_05").getElementsByTagName('answer').length;
-    for (i = 0; i =< nres; i++) {
-        answCheck1[i] = xmlDoc.getElementById("q_05").getElementsByTagName('answer')[i].innerHTML;
-    }
+    var numres = xmlDoc.getElementById("q_05").getElementsByTagName('answer').length;
+        answCheck1 = xmlDoc.getElementById("q_05").getElementsByTagName('answer').innerHTML;
+    
     ponerDatosCheckbox(tituloCheckbox, "q5", opcionesCheckbox, "checkBoxDiv1");
 
 //checkbox2
@@ -93,7 +92,7 @@ var tituloCheckbox = xmlDoc.getElementsByTagName("title")[4].innerHTML;
     ponerDatosCheckbox(tituloCheckbox, "q6", opcionesCheckbox, "checkBoxDiv2");
     //ANSWER
     var nres = xmlDoc.getElementById("q_06").getElementsByTagName('answer').length;
-    var answCheck2=[];
+    var answCheck2;
     for (i = 0; i < nres; i++) {
         answCheck2[i] = xmlDoc.getElementById("q_06").getElementsByTagName('answer')[i].innerHTML;
     }
