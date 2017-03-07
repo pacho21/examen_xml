@@ -22,11 +22,10 @@ window.onload = function(){
  formElement=document.getElementById("butCorregir");
   formElement.onclick=function(){
    inicializar();
-   if (comprobarContestadas()){
+   
     corregir();
     presentarNota();
-   }
-   return comprobarContestadas();
+
  }
  
  //LEER XML de xml/preguntas.xml
