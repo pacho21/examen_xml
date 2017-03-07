@@ -131,6 +131,7 @@ var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0]
     }
     ponerDatosMultiple(tituloMultiple, "q9", opcionesMultiple, 2);
     //ANSWER
+    var answMult1=[];
     var nres = xmlDoc.getElementById("q_09").getElementsByTagName('answer').length;
     for (i = 0; i < nres; i++) {
         answMult1[i] = xmlDoc.getElementById("q_09").getElementsByTagName('answer')[i].innerHTML;
@@ -147,6 +148,7 @@ var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0]
     }
     ponerDatosMultiple(tituloMultiple, "q10", opcionesMultiple, 3);
     //ANSWER
+    var answMult2=[];
     var nres = xmlDoc.getElementById("q_10").getElementsByTagName('answer').length;
     for (i = 0; i < nres; i++) {
         answMult2[i] = xmlDoc.getElementById("q_10").getElementsByTagName('answer')[i].innerHTML;
