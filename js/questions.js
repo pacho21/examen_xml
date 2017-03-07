@@ -4,6 +4,16 @@ var respuestaSelect=null;
 var respuestasCheckbox = [];
 var nota = 0;  //nota de la prueba sobre 3 puntos (hay 3 preguntas)
 
+var answRadio1;
+var answRadio2;
+var answText1;
+var answText2;
+var answCheck1 = [];
+var answCheck2 = [];
+var answSelect1;
+var answSelect2;
+var answMult1 = [];
+var answMult2 = [];
 //**************************************************************************************************** 
 //Después de cargar la página (onload) se definen los eventos sobre los elementos entre otras acciones.
 window.onload = function(){ 
@@ -44,7 +54,7 @@ function gestionarXml(dadesXml){
     }
     ponerDatosRadio(tituloRadio, "q1", opcionesRadio, "radioDiv1");
     //ANSWER
-    var answRadio1 = xmlDoc.getElementById("q_01").getElementsByTagName('answer')[0].innerHTML;
+    answRadio1 = xmlDoc.getElementById("q_01").getElementsByTagName('answer')[0].innerHTML;
 
 //Radio2
     var tituloRadio = xmlDoc.getElementsByTagName("title")[1].innerHTML;
@@ -55,11 +65,11 @@ function gestionarXml(dadesXml){
     }
     ponerDatosRadio(tituloRadio, "q2", opcionesRadio, "radioDiv2");
     //ANSWER
-    var answRadio2 = xmlDoc.getElementById("q_02").getElementsByTagName('answer')[0].innerHTML;
+   answRadio2 = xmlDoc.getElementById("q_02").getElementsByTagName('answer')[0].innerHTML;
 //end of radio's
 //TEXT
 document.getElementById("q3").innerHTML = xmlDoc.getElementsByTagName("title")[2].innerHTML;
-var  answText1 = xmlDoc.getElementById("q_03").getElementsByTagName('answer')[0].innerHTML;
+answText1 = xmlDoc.getElementById("q_03").getElementsByTagName('answer')[0].innerHTML;
 
 document.getElementById("q4").innerHTML = xmlDoc.getElementsByTagName("title")[3].innerHTML;
 var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0].innerHTML;
@@ -68,7 +78,7 @@ var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0]
 	var tituloCheckbox = xmlDoc.getElementsByTagName("title")[4].innerHTML;
     var opcionesCheckbox = [];
     var nopt = xmlDoc.getElementById("q_05").getElementsByTagName('option').length;
-    var answCheck1;
+   
     for (i = 0; i < nopt; i++) {
         opcionesCheckbox[i] = xmlDoc.getElementById("q_05").getElementsByTagName('option')[i].innerHTML;
     }
@@ -89,7 +99,7 @@ var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0]
     
     //ANSWER
     var nres = xmlDoc.getElementById("q_06").getElementsByTagName('answer').length;
-    var answCheck2;
+    
     answCheck2 = xmlDoc.getElementById("q_06").getElementsByTagName('answer').innerHTML;
 
     //SELECT ------------------------------------------------------------
@@ -102,14 +112,14 @@ var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0]
     }
     ponerDatosSelect(tituloSelect, "q7", opcionesSelect, 0);
     //ANSWER
-    var answSelect1;
+    
     answSelect1 = xmlDoc.getElementById("q_07").getElementsByTagName('answer')[0].innerHTML;
 
     //-------------------------------------------------------------------------------------
 
     tituloSelect = xmlDoc.getElementsByTagName("title")[7].innerHTML;
     opcionesSelect = [];
-	var answSelect2;
+	
     var nopt = xmlDoc.getElementById("q_08").getElementsByTagName('option').length;
     for (i = 0; i < nopt; i++) {
         opcionesSelect[i] = xmlDoc.getElementById("q_08").getElementsByTagName('option')[i].innerHTML;
@@ -121,14 +131,14 @@ var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0]
     //MULTIPLE ----------------------------------------------------------
     var tituloMultiple = xmlDoc.getElementsByTagName("title")[8].innerHTML;
     var opcionesMultiple = [];
-    var ansMult1=[];
+    
     var nopt = xmlDoc.getElementById("q_09").getElementsByTagName('option').length;
     for (i = 0; i < nopt; i++) {
         opcionesMultiple[i] = xmlDoc.getElementById("q_09").getElementsByTagName('option')[i].innerHTML;
     }
     ponerDatosMultiple(tituloMultiple, "q9", opcionesMultiple, 2);
     //ANSWER
-    var answMult1=[];
+    
     var nres = xmlDoc.getElementById("q_09").getElementsByTagName('answer').length;
     for (i = 0; i < nres; i++) {
         answMult1[i] = xmlDoc.getElementById("q_09").getElementsByTagName('answer')[i].innerHTML;
@@ -138,14 +148,14 @@ var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0]
 
     var tituloMultiple = xmlDoc.getElementsByTagName("title")[9].innerHTML;
     var opcionesMultiple = [];
-    var ansMult2=[];
+    
     var nopt = xmlDoc.getElementById("q_10").getElementsByTagName('option').length;
     for (i = 0; i < nopt; i++) {
         opcionesMultiple[i] = xmlDoc.getElementById("q_10").getElementsByTagName('option')[i].innerHTML;
     }
     ponerDatosMultiple(tituloMultiple, "q10", opcionesMultiple, 3);
     //ANSWER
-    var answMult2=[];
+    
     var nres = xmlDoc.getElementById("q_10").getElementsByTagName('answer').length;
     for (i = 0; i < nres; i++) {
         answMult2[i] = xmlDoc.getElementById("q_10").getElementsByTagName('answer')[i].innerHTML;
@@ -224,71 +234,10 @@ function ponerDatosRadio(tituloRadio, IDposicion, opciones, divID) {
 //****************************************************************************************************
 //implementación de la corrección
 
-function corregirNumber(){
-  //Vosotros debéis comparar el texto escrito con el texto que hay en el xml
-  //en este ejemplo hace una comparación de números enteros
-  var s=formElement.elements[0].value;     
-  if (s==numeroSecreto) {
-   darRespuestaHtml("P1: Exacto!");
-   nota +=1;
-  }
-  else {
-    if (s>numeroSecreto) darRespuestaHtml("P1: Te has pasado");
-    else darRespuestaHtml("P1: Te has quedado corto");
-  }
-}
 
-function corregirSelect(){
-  //Compara el índice seleccionado con el valor del íncide que hay en el xml (<answer>2</answer>)
-  //para implementarlo con type radio, usar value para enumerar las opciones <input type='radio' value='1'>...
-  //luego comparar ese value con el value guardado en answer
-  var sel = formElement.elements[1];  
-  if (sel.selectedIndex-1==respuestaSelect) { //-1 porque hemos puesto una opción por defecto en el select que ocupa la posición 0
-   darRespuestaHtml("P2: Correcto");
-   nota +=1;
-  }
-  else darRespuestaHtml("P2: Incorrecto");
-}
-
-//Si necesitáis ayuda para hacer un corregirRadio() decirlo, lo ideal es que a podáis construirla modificando corregirCheckbox
-function corregirCheckbox(){
-  //Para cada opción mira si está checkeada, si está checkeada mira si es correcta y lo guarda en un array escorrecta[]
-  var f=formElement;
-  var escorrecta = [];
-  for (i = 0; i < f.color.length; i++) {  //"color" es el nombre asignado a todos los checkbox
-   if (f.color[i].checked) {
-    escorrecta[i]=false;     
-    for (j = 0; j < respuestasCheckbox.length; j++) {
-     if (i==respuestasCheckbox[j]) escorrecta[i]=true;
-    }
-    //si es correcta sumamos y ponemos mensaje, si no es correcta restamos y ponemos mensaje.
-    if (escorrecta[i]) {
-     nota +=1.0/respuestasCheckbox.length;  //dividido por el número de respuestas correctas   
-     darRespuestaHtml("P3: "+i+" correcta");    
-    } else {
-     nota -=1.0/respuestasCheckbox.length;  //dividido por el número de respuestas correctas   
-     darRespuestaHtml("P3: "+i+" incorrecta");
-    }   
-   } 
-  }
-}
 
 //****************************************************************************************************
 // poner los datos recibios en el HTML
-function ponerDatosInputHtml(t){
- document.getElementById("tituloInput").innerHTML = t;
-}
-
-function ponerDatosSelectHtml(t,opt){
-  document.getElementById("tituloSelect").innerHTML=t;
-  var select = document.getElementsByTagName("select")[0];
-  for (i = 0; i < opt.length; i++) { 
-    var option = document.createElement("option");
-    option.text = opt[i];
-    option.value=i+1;
-    select.options.add(option);
- }  
-}
 
 function ponerDatosCheckboxHtml(t,opt){
  var checkboxContainer=document.getElementById('checkboxDiv');
@@ -309,13 +258,6 @@ function ponerDatosCheckboxHtml(t,opt){
 
 //****************************************************************************************************
 //Gestionar la presentación de las respuestas
-function darRespuestaHtml(r){
- var p = document.createElement("p");
- var node = document.createTextNode(r);
- p.appendChild(node);
- document.getElementById('resultadosDiv').appendChild(p);
-}
-
 
 function inicializar(){
    document.getElementById('resultadosDiv').innerHTML = "";
