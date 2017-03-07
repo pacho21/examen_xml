@@ -13,9 +13,7 @@ window.onload = function(){
  formElement.onsubmit=function(){
    inicializar();
    if (comprobar()){
-    corregirNumber();
-    corregirSelect();
-    corregirCheckbox();
+    corregir();
     presentarNota();
    }
    return false;
@@ -79,7 +77,7 @@ var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0]
     var numres = xmlDoc.getElementById("q_05").getElementsByTagName('answer').length;
         answCheck1 = xmlDoc.getElementById("q_05").getElementsByTagName('answer').innerHTML;
 
-//checkbox2
+	//checkbox2
 
 	var tituloCheckbox = xmlDoc.getElementsByTagName("title")[5].innerHTML;
     var opcionesCheckbox = [];
@@ -88,22 +86,23 @@ var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0]
         opcionesCheckbox[i] = xmlDoc.getElementById("q_06").getElementsByTagName('option')[i].innerHTML;
     }
     ponerDatosCheckbox(tituloCheckbox, "q6", opcionesCheckbox, "checkBoxDiv2");
+    
     //ANSWER
     var nres = xmlDoc.getElementById("q_06").getElementsByTagName('answer').length;
     var answCheck2;
-    
     answCheck2 = xmlDoc.getElementById("q_06").getElementsByTagName('answer').innerHTML;
 
     //SELECT ------------------------------------------------------------
     var tituloSelect = xmlDoc.getElementsByTagName("title")[6].innerHTML;
     var opcionesSelect = [];
-    var answSelect1;
+    
     var nopt = xmlDoc.getElementById("q_07").getElementsByTagName('option').length;
     for (i = 0; i < nopt; i++) {
         opcionesSelect[i] = xmlDoc.getElementById("q_07").getElementsByTagName('option')[i].innerHTML;
     }
     ponerDatosSelect(tituloSelect, "q7", opcionesSelect, 0);
     //ANSWER
+    var answSelect1;
     answSelect1 = xmlDoc.getElementById("q_07").getElementsByTagName('answer')[0].innerHTML;
 
     //-------------------------------------------------------------------------------------
@@ -317,33 +316,300 @@ function darRespuestaHtml(r){
  document.getElementById('resultadosDiv').appendChild(p);
 }
 
-function presentarNota(){
-   darRespuestaHtml("Nota: "+nota+" puntos sobre 3");
-}
 
 function inicializar(){
    document.getElementById('resultadosDiv').innerHTML = "";
    nota=0.0;
 }
 
-//Comprobar que se han introducido datos en el formulario
-function comprobar(){
-   var f=formElement;
-   var checked=false;
-   for (i = 0; i < f.color.length; i++) {  //"color" es el nombre asignado a todos los checkbox
-      if (f.color[i].checked) checked=true;
-   }
-   if (f.elements[0].value=="") {
-    f.elements[0].focus();
-    alert("Escribe un número");
-    return false;
-   } else if (f.elements[1].selectedIndex==0) {
-    f.elements[1].focus();
-    alert("Selecciona una opción");
-    return false;
-   } if (!checked) {    
-    document.getElementsByTagName("h3")[2].focus();
-    alert("Selecciona una opción del checkbox");
-    return false;
-   } else  return true;
+
+function corregir() {
+    document.getElementById("resultados").style.display = "block";
+    addCorreccionHtml("RESULTADOS", "h2");
+    document.getElementById("resultados").appendChild(document.createElement("hr"));
+
+    addCorreccionHtml("PREGUNTA 1", "h4");
+    corregirRadio("radradioDiv1", answRadio1, 1);
+    addSolucionHtml(answRadio1);
+
+    addCorreccionHtml("PREGUNTA 2", "h4");
+    corregirRadio("radradioDiv2", answRadio2, 2);
+    addSolucionHtml(answRadio2);
+
+    addCorreccionHtml("PREGUNTA 3", "h4");
+    corregirText("text1", answText1, 3);
+    addSolucionHtml(answText1);
+
+    addCorreccionHtml("PREGUNTA 4", "h4");
+    corregirText("text2", answText2, 4);
+    addSolucionHtml(answText2);
+
+    addCorreccionHtml("PREGUNTA 5", "h4");
+    corregirCheckbox("checkcheckBoxDiv1", answCheck1, 5);
+    addSolucionHtml(answCheck1);
+
+    addCorreccionHtml("PREGUNTA 6", "h4");
+    corregirCheckbox("checkcheckBoxDiv2", answCheck2, 6);
+    addSolucionHtml(answCheck2);
+
+    addCorreccionHtml("PREGUNTA 7", "h4");
+    corregirSelect("sel1", answSelect1, 7);
+    addSolucionHtml(answSelect1);
+
+    addCorreccionHtml("PREGUNTA 8", "h4");
+    corregirSelect("sel2", answSelect2, 8);
+    addSolucionHtml(answSelect2);
+
+    addCorreccionHtml("PREGUNTA 9", "h4");
+    corregirMultiple("mult1", answMult1, 9);
+    addSolucionHtml(answMult1);
+
+    addCorreccionHtml("PREGUNTA 10", "h4");
+    corregirMultiple("mult2", answMult2, 10);
+    addSolucionHtml(answMult2);
+
+    window.scrollTo(0, document.body.scrollHeight);
+}
+
+
+function corregirRadio(divID, answer, numPregunta) {
+    var f = formElement;
+    var rad;
+    var fin = false;
+
+    switch (divID) {
+        case "radradioDiv1":
+            rad = f.radradioDiv1;
+            break;
+        case "radradioDiv2":
+            rad = f.radradioDiv2;
+            break;
+    }
+
+    for (i = 0; (i < rad.length) && !(fin); i++) {
+        if (rad[i].checked) {
+            fin = true;
+            if (i == answer) {
+                addCorreccionHtml(numPregunta + "." + (i) + " --> ¡CORRECTA!", "h5");
+                nota += 1;
+            } else {
+                addCorreccionHtml(numPregunta + "." + (i) + " --> ¡INCORRECTA!", "h5");
+            }
+        }
+    }
+}
+
+
+function corregirText(IDtext, answer, numPregunta) {
+    var s = document.getElementById(IDtext).value;
+    //Pasamos todo a minisculas para evitar conflictos
+    s = s.toLowerCase();
+
+    if (s == answer) {
+        addCorreccionHtml(numPregunta + " --> ¡CORRECTA!", "h5");
+        nota += 1;
+    } else {
+        addCorreccionHtml(numPregunta + " --> ¡INCORRECTA!", "h5");
+    }
+}
+
+
+function corregirCheckbox(divID, answer, numPregunta) {
+    // Para cada opción mira si está checkeada, si está checkeada mira si es correcta y lo
+    // guarda en un array escorrecta[]
+    var f = formElement;
+    var escorrecta = [];
+    var chk;
+
+    switch (divID) {
+        case "checkcheckBoxDiv1":
+            chk = f.checkcheckBoxDiv1;
+            break;
+        case "checkcheckBoxDiv2":
+            chk = f.checkcheckBoxDiv2;
+            break;
+    }
+
+    for (i = 0; i < chk.length; i++) {  //"checkcheckBoxDiv1" es el nombre asignado a todos los checkbox
+        if (chk[i].checked) {
+            escorrecta[i] = false;
+            for (j = 0; j < answer.length; j++) {
+                if (i == answer[j]) escorrecta[i] = true;
+            }
+        }
+    }
+    //Por cada opción que está chequedada, si es correcta sumamos y ponemos mensaje, si no es correcta restamos y ponemos mensaje.
+    for (i = 0; i < chk.length; i++) {
+        if (chk[i].checked) {
+            if (escorrecta[i]) {
+                nota += 1.0 / answer.length;  //dividido por el número de respuestas correctas   
+                addCorreccionHtml(numPregunta + "." + (i) + " --> ¡CORRECTA!", "h5");
+            } else {
+                nota -= 1.0 / answer.length;  //dividido por el número de respuestas correctas   
+                addCorreccionHtml(numPregunta + "." + (i) + " --> ¡INCORRECTA!", "h5");
+            }
+        }
+    }
+}
+
+function corregirMultiple(IDmulti, answer, numPregunta) {
+    var f = formElement;
+    var escorrecta = [];
+    var mult = document.getElementById(IDmulti);
+
+    for (i = 0; i < mult.length; i++) {
+        if (mult[i].selected) {
+            escorrecta[i] = false;
+            for (j = 0; j < answer.length; j++) {
+                if (i == answer[j]) escorrecta[i] = true;
+            }
+        }
+    }
+    //Por cada opción que está chequedada, si es correcta sumamos y ponemos mensaje, si no es correcta restamos y ponemos mensaje.
+    for (i = 0; i < mult.length; i++) {
+        if (mult[i].selected) {
+            if (escorrecta[i]) {
+                nota += 1.0 / answer.length;  //dividido por el número de respuestas correctas   
+                addCorreccionHtml(numPregunta + "." + (i) + " --> ¡CORRECTA!", "h5");
+            } else {
+                nota -= 1.0 / answer.length;  //dividido por el número de respuestas correctas   
+                addCorreccionHtml(numPregunta + "." + (i) + " --> ¡INCORRECTA!", "h5");
+            }
+        }
+    }
+}
+
+
+function corregirSelect(IDselect, answer, numPregunta) {
+    var sel = document.getElementById(IDselect);
+    if (sel.selectedIndex - 1 == answer) {
+        addCorreccionHtml(numPregunta + "." + (sel.selectedIndex-1) + " --> ¡CORRECTA!", "h5");
+        nota += 1;
+    } else {
+        addCorreccionHtml(numPregunta + "." + (sel.selectedIndex-1) + " --> ¡INCORRECTA!", "h5");
+    }
+}
+
+
+function addCorreccionHtml(s, tipoH) {
+    var h = document.createElement(tipoH);
+    var node = document.createTextNode(s);
+    h.appendChild(node);
+    document.getElementById("resultados").appendChild(h);
+}
+
+function addSolucionHtml(s) {
+    var p = document.createElement("p");
+    p.innerHTML = ("SOLUCIÓN: " + s);
+    document.getElementById("resultados").appendChild(p);
+    document.getElementById("resultados").appendChild(document.createElement("hr"));
+}
+
+
+
+
+function presentarNota() {
+    nota = nota.toFixed(2);
+    addCorreccionHtml("Nota: " + nota + " puntos sobre 10", "h2");
+    if (nota >= 5) {
+        alert("¡ENHORABUENA! HAS APROBADO CON UN " + nota);
+    } else {
+        alert("LÁSTIMA! HAS SUSPENDIDO CON UN " + nota);
+    }
+}
+
+function comprobarContestadas() {
+    var f = formElement;
+    var checked = false;
+    var cnt = 0;
+
+    //Empezamos mirando los radio
+    for (i = 0; i < f.radradioDiv1.length; i++) {
+        if (f.radradioDiv1[i].checked) checked = true;
+    }
+    if (!checked) {
+        alert("¡Contesta la primera pregunta!");
+        f.elements[0].focus();
+        return false;
+    }
+    cnt += f.radradioDiv1.length;
+    checked = false;
+
+    for (i = 0; i < f.radradioDiv2.length; i++) {
+        if (f.radradioDiv2[i].checked) checked = true;
+    }
+    if (!checked) {
+        alert("¡Contesta la segunda pregunta!");
+        f.elements[f.radradioDiv1.length].focus();
+        return false;
+    }
+    cnt += f.radradioDiv2.length;
+    checked = false;
+
+    //Miramos los text
+    if (document.getElementById("text1").value.length == 0) {
+        alert("¡Contesta la tercera pregunta!");
+        document.getElementById("text1").focus();
+        return false;
+    }
+
+    if (document.getElementById("text2").value.length == 0) {
+        alert("¡Contesta la cuarta pregunta!");
+        document.getElementById("text2").focus();
+        return false;
+    }
+    cnt += 2;
+
+    //Miramos los checkbox
+    for (i = 0; i < f.checkcheckBoxDiv1.length; i++) {
+        if (f.checkcheckBoxDiv1[i].checked) checked = true;
+    }
+    if (!checked) {
+        alert("¡Contesta la quinta pregunta!");
+        f.elements[cnt].focus();
+        return false;
+    }
+    cnt += f.checkcheckBoxDiv1.length;
+    checked = false;
+
+    for (i = 0; i < f.checkcheckBoxDiv2.length; i++) {
+        if (f.checkcheckBoxDiv2[i].checked) checked = true;
+    }
+    if (!checked) {
+        alert("¡Contesta la sexta pregunta!");
+        f.elements[cnt].focus();
+        return false;
+    }
+    cnt += f.checkcheckBoxDiv2.length;
+    checked = false;
+
+    //Miramos los select simple
+    if (document.getElementById("sel1").selectedIndex == 0) {
+        alert("¡Contesta la séptima pregunta!");
+        document.getElementById("sel1").focus();
+        return false;
+    }
+
+    if (document.getElementById("sel2").selectedIndex == 0) {
+        alert("¡Contesta la octava pregunta!");
+        document.getElementById("sel2").focus();
+        return false;
+    }
+
+    //Miramos los select Mulltiple
+
+    if (document.getElementById("mult1").selectedIndex == -1) {
+        alert("¡Contesta la novena pregunta!");
+        document.getElementById("mult1").focus();
+        return false;
+    }
+    if (document.getElementById("mult2").selectedIndex == -1) {
+        alert("¡Contesta la décima pregunta!");
+        document.getElementById("mult2").focus();
+        return false;
+    }
+
+    return true;
+}
+
 }
