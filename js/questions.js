@@ -77,7 +77,7 @@ var tituloCheckbox = xmlDoc.getElementsByTagName("title")[4].innerHTML;
     ponerDatosCheckbox(tituloCheckbox, "q5", opcionesCheckbox, "checkBoxDiv1");
     //ANSWER
     var nres = xmlDoc.getElementById("q_05").getElementsByTagName('answer').length;
-    for (i = 0; i < nres; i++) {
+    for (i = 0; i =< nres; i++) {
         answCheck1[i] = xmlDoc.getElementById("q_05").getElementsByTagName('answer')[i].innerHTML;
     }
     ponerDatosCheckbox(tituloCheckbox, "q5", opcionesCheckbox, "checkBoxDiv1");
