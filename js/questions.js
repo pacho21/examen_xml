@@ -612,4 +612,3 @@ function comprobarContestadas() {
     return true;
 }
 
-}
