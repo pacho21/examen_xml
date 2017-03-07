@@ -93,9 +93,8 @@ var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0]
     //ANSWER
     var nres = xmlDoc.getElementById("q_06").getElementsByTagName('answer').length;
     var answCheck2;
-    for (i = 0; i < nres; i++) {
-        answCheck2[i] = xmlDoc.getElementById("q_06").getElementsByTagName('answer')[i].innerHTML;
-    }
+    
+    answCheck2 = xmlDoc.getElementById("q_06").getElementsByTagName('answer').innerHTML;
 
     //SELECT ------------------------------------------------------------
     var tituloSelect = xmlDoc.getElementsByTagName("title")[6].innerHTML;
