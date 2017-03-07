@@ -12,11 +12,11 @@ window.onload = function(){
  formElement=document.getElementById('myform');
  formElement.onsubmit=function(){
    inicializar();
-   if (comprobar()){
+   if (comprobarContestadas()){
     corregir();
     presentarNota();
    }
-   return false;
+   return comprobarContestadas();
  }
  
  //LEER XML de xml/preguntas.xml
