@@ -125,15 +125,15 @@ var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0]
     var tituloMultiple = xmlDoc.getElementsByTagName("title")[8].innerHTML;
     var opcionesMultiple = [];
     var ansMult1=[];
-    var nopt = xmlDoc.getElementById("jklm_009").getElementsByTagName('option').length;
+    var nopt = xmlDoc.getElementById("q_09").getElementsByTagName('option').length;
     for (i = 0; i < nopt; i++) {
-        opcionesMultiple[i] = xmlDoc.getElementById("jklm_009").getElementsByTagName('option')[i].innerHTML;
+        opcionesMultiple[i] = xmlDoc.getElementById("q_09").getElementsByTagName('option')[i].innerHTML;
     }
     ponerDatosMultiple(tituloMultiple, "q9", opcionesMultiple, 2);
     //ANSWER
-    var nres = xmlDoc.getElementById("jklm_009").getElementsByTagName('answer').length;
+    var nres = xmlDoc.getElementById("q_09").getElementsByTagName('answer').length;
     for (i = 0; i < nres; i++) {
-        answMult1[i] = xmlDoc.getElementById("jklm_009").getElementsByTagName('answer')[i].innerHTML;
+        answMult1[i] = xmlDoc.getElementById("q_09").getElementsByTagName('answer')[i].innerHTML;
     }
 
     //------------------------------------------------------
@@ -141,15 +141,15 @@ var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0]
     var tituloMultiple = xmlDoc.getElementsByTagName("title")[9].innerHTML;
     var opcionesMultiple = [];
     var ansMult2=[];
-    var nopt = xmlDoc.getElementById("jklm_010").getElementsByTagName('option').length;
+    var nopt = xmlDoc.getElementById("q_10").getElementsByTagName('option').length;
     for (i = 0; i < nopt; i++) {
-        opcionesMultiple[i] = xmlDoc.getElementById("jklm_010").getElementsByTagName('option')[i].innerHTML;
+        opcionesMultiple[i] = xmlDoc.getElementById("q_10").getElementsByTagName('option')[i].innerHTML;
     }
     ponerDatosMultiple(tituloMultiple, "q10", opcionesMultiple, 3);
     //ANSWER
-    var nres = xmlDoc.getElementById("jklm_010").getElementsByTagName('answer').length;
+    var nres = xmlDoc.getElementById("q_10").getElementsByTagName('answer').length;
     for (i = 0; i < nres; i++) {
-        answMult2[i] = xmlDoc.getElementById("jklm_010").getElementsByTagName('answer')[i].innerHTML;
+        answMult2[i] = xmlDoc.getElementById("q_10").getElementsByTagName('answer')[i].innerHTML;
     }
 
 
