@@ -78,8 +78,6 @@ var  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName('answer')[0]
     //ANSWER
     var numres = xmlDoc.getElementById("q_05").getElementsByTagName('answer').length;
         answCheck1 = xmlDoc.getElementById("q_05").getElementsByTagName('answer').innerHTML;
-    
-    ponerDatosCheckbox(tituloCheckbox, "q5", opcionesCheckbox, "checkBoxDiv1");
 
 //checkbox2
 
