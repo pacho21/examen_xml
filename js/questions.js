@@ -239,22 +239,6 @@ function ponerDatosRadio(tituloRadio, IDposicion, opciones, divID) {
 //****************************************************************************************************
 // poner los datos recibios en el HTML
 
-function ponerDatosCheckboxHtml(t,opt){
- var checkboxContainer=document.getElementById('checkboxDiv');
- document.getElementById('tituloCheckbox').innerHTML = t;
- for (i = 0; i < opt.length; i++) { 
-    var input = document.createElement("input");
-    var label = document.createElement("label");
-    label.innerHTML=opt[i];
-    label.setAttribute("for", "color_"+i);
-    input.type="checkbox";
-    input.name="color";
-    input.id="color_"+i;;    
-    checkboxContainer.appendChild(input);
-    checkboxContainer.appendChild(label);
-    checkboxContainer.appendChild(document.createElement("br"));
- }  
-}
 
 //****************************************************************************************************
 //Gestionar la presentación de las respuestas
@@ -265,199 +249,107 @@ function inicializar(){
 }
 
 
-function corregir() {
-    document.getElementById("resultados").style.display = "block";
-    addCorreccionHtml("RESULTADOS", "h2");
-    document.getElementById("resultados").appendChild(document.createElement("hr"));
-
-    addCorreccionHtml("PREGUNTA 1", "h4");
-    corregirRadio("radradioDiv1", answRadio1, 1);
-    addSolucionHtml(answRadio1);
-
-    addCorreccionHtml("PREGUNTA 2", "h4");
-    corregirRadio("radradioDiv2", answRadio2, 2);
-    addSolucionHtml(answRadio2);
-
-    addCorreccionHtml("PREGUNTA 3", "h4");
-    corregirText("text1", answText1, 3);
-    addSolucionHtml(answText1);
-
-    addCorreccionHtml("PREGUNTA 4", "h4");
-    corregirText("text2", answText2, 4);
-    addSolucionHtml(answText2);
-
-    addCorreccionHtml("PREGUNTA 5", "h4");
-    corregirCheckbox("checkcheckBoxDiv1", answCheck1, 5);
-    addSolucionHtml(answCheck1);
-
-    addCorreccionHtml("PREGUNTA 6", "h4");
-    corregirCheckbox("checkcheckBoxDiv2", answCheck2, 6);
-    addSolucionHtml(answCheck2);
-
-    addCorreccionHtml("PREGUNTA 7", "h4");
-    corregirSelect("sel1", answSelect1, 7);
-    addSolucionHtml(answSelect1);
-
-    addCorreccionHtml("PREGUNTA 8", "h4");
-    corregirSelect("sel2", answSelect2, 8);
-    addSolucionHtml(answSelect2);
-
-    addCorreccionHtml("PREGUNTA 9", "h4");
-    corregirMultiple("mult1", answMult1, 9);
-    addSolucionHtml(answMult1);
-
-    addCorreccionHtml("PREGUNTA 10", "h4");
-    corregirMultiple("mult2", answMult2, 10);
-    addSolucionHtml(answMult2);
-
-    window.scrollTo(0, document.body.scrollHeight);
+function corregirText(qn,n,ans){
+  var s = document.getElementById(qn).getElementsByTagName("input")[0].value;
+  if (s.toUpperCase()==ans.toUpperCase())
+  {
+    darRespuestaHtml("Nº "+n+": <b>Correcto!</b>");
+    nota +=1;
+  }
+  else
+  {
+    if (s.toUpperCase()!=ans.toUpperCase())
+    {
+      darRespuestaHtml("Nº "+n+": <b>Respuesta incorrecta</b>");
+    }
+    else
+    {
+      darRespuestaHtml("Nº "+n+": <b>Respuesta incorrecta</b>");
+    }
+  }
 }
 
 
-function corregirRadio(divID, answer, numPregunta) {
-    var f = formElement;
-    var rad;
-    var fin = false;
-
-    switch (divID) {
-        case "radradioDiv1":
-            rad = f.radradioDiv1;
-            break;
-        case "radradioDiv2":
-            rad = f.radradioDiv2;
-            break;
-    }
-
-    for (i = 0; (i < rad.length) && !(fin); i++) {
-        if (rad[i].checked) {
-            fin = true;
-            if (i == answer) {
-                addCorreccionHtml(numPregunta + "." + (i) + " --> ¡CORRECTA!", "h5");
-                nota += 1;
-            } else {
-                addCorreccionHtml(numPregunta + "." + (i) + " --> ¡INCORRECTA!", "h5");
-            }
-        }
-    }
-}
-
-
-function corregirText(IDtext, answer, numPregunta) {
-    var s = document.getElementById(IDtext).value;
-    //Pasamos todo a minisculas para evitar conflictos
-    s = s.toLowerCase();
-
-    if (s == answer) {
-        addCorreccionHtml(numPregunta + " --> ¡CORRECTA!", "h5");
-        nota += 1;
-    } else {
-        addCorreccionHtml(numPregunta + " --> ¡INCORRECTA!", "h5");
-    }
-}
-
-
-function corregirCheckbox(divID, answer, numPregunta) {
-    // Para cada opción mira si está checkeada, si está checkeada mira si es correcta y lo
-    // guarda en un array escorrecta[]
-    var f = formElement;
-    var escorrecta = [];
-    var chk;
-
-    switch (divID) {
-        case "checkcheckBoxDiv1":
-            chk = f.checkcheckBoxDiv1;
-            break;
-        case "checkcheckBoxDiv2":
-            chk = f.checkcheckBoxDiv2;
-            break;
-    }
-
-    for (i = 0; i < chk.length; i++) {  //"checkcheckBoxDiv1" es el nombre asignado a todos los checkbox
-        if (chk[i].checked) {
-            escorrecta[i] = false;
-            for (j = 0; j < answer.length; j++) {
-                if (i == answer[j]) escorrecta[i] = true;
-            }
-        }
-    }
-    //Por cada opción que está chequedada, si es correcta sumamos y ponemos mensaje, si no es correcta restamos y ponemos mensaje.
-    for (i = 0; i < chk.length; i++) {
-        if (chk[i].checked) {
-            if (escorrecta[i]) {
-                nota += 1.0 / answer.length;  //dividido por el número de respuestas correctas   
-                addCorreccionHtml(numPregunta + "." + (i) + " --> ¡CORRECTA!", "h5");
-            } else {
-                nota -= 1.0 / answer.length;  //dividido por el número de respuestas correctas   
-                addCorreccionHtml(numPregunta + "." + (i) + " --> ¡INCORRECTA!", "h5");
-            }
-        }
-    }
-}
-
-function corregirMultiple(IDmulti, answer, numPregunta) {
-    var f = formElement;
-    var escorrecta = [];
-    var mult = document.getElementById(IDmulti);
-
-    for (i = 0; i < mult.length; i++) {
-        if (mult[i].selected) {
-            escorrecta[i] = false;
-            for (j = 0; j < answer.length; j++) {
-                if (i == answer[j]) escorrecta[i] = true;
-            }
-        }
-    }
-    //Por cada opción que está chequedada, si es correcta sumamos y ponemos mensaje, si no es correcta restamos y ponemos mensaje.
-    for (i = 0; i < mult.length; i++) {
-        if (mult[i].selected) {
-            if (escorrecta[i]) {
-                nota += 1.0 / answer.length;  //dividido por el número de respuestas correctas   
-                addCorreccionHtml(numPregunta + "." + (i) + " --> ¡CORRECTA!", "h5");
-            } else {
-                nota -= 1.0 / answer.length;  //dividido por el número de respuestas correctas   
-                addCorreccionHtml(numPregunta + "." + (i) + " --> ¡INCORRECTA!", "h5");
-            }
-        }
-    }
-}
-
-
-function corregirSelect(IDselect, answer, numPregunta) {
-    var sel = document.getElementById(IDselect);
-    if (sel.selectedIndex - 1 == answer) {
-        addCorreccionHtml(numPregunta + "." + (sel.selectedIndex-1) + " --> ¡CORRECTA!", "h5");
-        nota += 1;
-    } else {
-        addCorreccionHtml(numPregunta + "." + (sel.selectedIndex-1) + " --> ¡INCORRECTA!", "h5");
-    }
-}
-
-
-function addCorreccionHtml(s, tipoH) {
-    var h = document.createElement(tipoH);
-    var node = document.createTextNode(s);
-    h.appendChild(node);
-    document.getElementById("resultados").appendChild(h);
-}
-
-function addSolucionHtml(s) {
-    var p = document.createElement("p");
-    p.innerHTML = ("SOLUCIÓN: " + s);
-    document.getElementById("resultados").appendChild(p);
-    document.getElementById("resultados").appendChild(document.createElement("hr"));
+function corregirSelect(qn,n,ans){
+  var sel = document.getElementById(qn);  
+  if (sel.selectedIndex==ans)
+  {
+    darRespuestaHtml("Nº "+n+": <b>Correcto!</b>");
+    nota +=1;
+  }
+  else {darRespuestaHtml("Nº "+n+": <b>Respuesta incorrecta</b>");}
 }
 
 
 
+function corregirMulti(qn,n,ans){
+  var v=[];
+  var corr=0;
+  var opt = document.getElementById(qn).getElementsByTagName("option");
 
-function presentarNota() {
-    nota = nota.toFixed(2);
-    addCorreccionHtml("Nota: " + nota + " puntos sobre 10", "h2");
-    if (nota >= 5) {
-        alert("¡ENHORABUENA! HAS APROBADO CON UN " + nota);
-    } else {
-        alert("LÁSTIMA! HAS SUSPENDIDO CON UN " + nota);
+  for (i = 0; i < opt.length; i++)
+  {
+    if(opt[i].selected) 
+    {
+      v[i]=false;
+      for (j = 0; j < ans.length; j++) 
+      {
+        if(i==ans[j]) {v[i]=true;}
+      }
     }
+  }
+  for (i = 0; i < opt.length; i++) 
+  {   
+    if (opt[i].selected) 
+    {
+      if (v[i]) {nota +=1.0/ans.length; corr++;} /*dividido por el número de respuestas correctas*/   
+      else {nota -=1.0/ans.length; corr--;} /*dividido por el número de respuestas correctas*/
+    }
+  }
+  if (corr==ans.length) {darRespuestaHtml("Nº "+n+": <b>Correcto!</b>");}
+  else {darRespuestaHtml("Nº "+n+": <b>Respuesta incorrecta</b>");}
+}
+
+
+function corregirCheckbox(qn,n,ans){
+  var v=[];
+  var corr=0;
+  var opt = document.getElementById(qn).elements["checkbox"];
+
+  for (i = 0; i < opt.length; i++)
+  {
+    if(opt[i].checked) 
+    {
+      v[i]=false;
+      for (j = 0; j < ans.length; j++) 
+      {
+        if(i==ans[j]) {v[i]=true;}
+      }
+    }
+  }
+
+  for (i = 0; i < opt.length; i++) 
+  {   
+    if (opt[i].checked) 
+    {
+      if (v[i]) {nota +=1.0/abs.length; corr++;} /*dividido por el número de respuestas correctas*/     
+      else {nota -=1.0/abs.length; corr--;} /*dividido por el número de respuestas correctas*/   
+    }
+  }
+  if (corr==abs.length) {darRespuestaHtml("Nº "+n+": <b>Correcto!</b>");}
+  else {darRespuestaHtml("Nº "+n+": <b>Respuesta incorrecta</b>");}
+}
+
+
+function corregirRadio(qn,n,ans){
+  var r=null;
+  var opt = document.getElementById(qn).elements["radio"];
+  for (i = 0; i < opt.length; i++)
+  {
+    if(opt[i].checked) {r=i;}
+  }
+  if(r==ans) {darRespuestaHtml("Nº "+n+": <b>Correcto!</b>"); nota +=1;}
+  else {darRespuestaHtml("Nº "+n+": <b>Respuesta incorrecta</b>");}
 }
 
 function comprobarContestadas() {
@@ -554,3 +446,26 @@ function comprobarContestadas() {
     return true;
 }
 
+function darRespuestaHtml(r){
+  var p = document.createElement("p");
+  p.innerHTML = (r);
+  document.getElementById("resultadosDiv").appendChild(p);
+}
+/*Muestra el resultado de la nota final del ejercicio.*/
+
+function presentarNota(){
+  darRespuestaHtml("<b>Nota: "+nota+"</b> punto/s sobre 10");
+}
+
+function corregir(){
+    corregirRadio(q1,1,answRadio1);
+    corregirRadio(q2,2,answRadio2);
+    corregirText(q3,3,answText1);
+    corregirText(q4,4,answText2);
+    corregirCheckbox(q5,5,answCheck1);
+    corregirCheckbox(q6,6,answCheck2);
+    corregirSelect(q7,7,answSelect1);
+    corregirSelect(q8,8,answSelect2);
+    corregirMulti(q9,9,answMult1);
+    corregirMulti(q10,10,answMult2);
+}
