@@ -212,6 +212,7 @@ function ponerDatosCheckbox(tituloCheckbox, IDposicion, opciones, divID) {
 }
 
 function ponerDatosRadio(tituloRadio, IDposicion, opciones, divID) {
+    var xmlDoc = dadesXml.responseXML;
     document.getElementById(IDposicion).innerHTML = tituloRadio;
     var radioContainer = document.getElementById(divID);
     var inpt;
