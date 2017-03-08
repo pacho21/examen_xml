@@ -163,7 +163,7 @@ function gestionarXml(contXml){
   } 
     /*Pregunta tipo 'select' nº 2.*/
   document.getElementById("q08").innerHTML = xmlDoc.getElementsByTagName("title")[7].innerHTML;
-  answSelect1 = xmlDoc.getElementById("q_08").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
+  answSelect2 = xmlDoc.getElementById("q_08").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select = document.getElementById("in_8");
   var nopciones = xmlDoc.getElementById("q_08").getElementsByTagName("option").length;
   for (i = 0; i < nopciones; i++){ 
@@ -224,7 +224,7 @@ function corregirRadio2(){
   {
     if(opt[i].checked) {r=i;}
   }
-  if(r==answRadio1) {darRespuestaHtml("Nº 2: <b>Correcto!</b>"); nota +=1;}
+  if(r==answRadio2) {darRespuestaHtml("Nº 2: <b>Correcto!</b>"); nota +=1;}
   else {darRespuestaHtml("Nº 2: <b>Respuesta incorrecta</b>");}
 }
 
