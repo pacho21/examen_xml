@@ -45,26 +45,22 @@ window.onload = function(){
 function gestionarXml(dadesXml){
  var xmlDoc = dadesXml.responseXML; //Parse XML to xmlDoc
 //Radio1
-    var tituloRadio = xmlDoc.getElementsByTagName("title")[0].innerHTML;
-    var opcionesRadio = [];
-    var nopt = xmlDoc.getElementById("q_01").getElementsByTagName('option').length;
-    for (i = 0; i < nopt; i++) {
-        opcionesRadio[i] = xmlDoc.getElementById("q_01").getElementsByTagName('option')[i].innerHTML;
-    }
-    ponerDatosRadio(tituloRadio, "q1", opcionesRadio, "radioDiv1");
-    //ANSWER
-    answRadio1 = xmlDoc.getElementById("q_01").getElementsByTagName('answer')[0].innerHTML;
-
-//Radio2
-    var tituloRadio = xmlDoc.getElementsByTagName("title")[1].innerHTML;
-    var opcionesRadio = [];
-    var nopt = xmlDoc.getElementById("q_02").getElementsByTagName('option').length;
-    for (i = 0; i < nopt; i++) {
-        opcionesRadio[i] = xmlDoc.getElementById("q_02").getElementsByTagName('option')[i].innerHTML;
-    }
-    ponerDatosRadio(tituloRadio, "q2", opcionesRadio, "radioDiv2");
-    //ANSWER
-   answRadio2 = xmlDoc.getElementById("q_02").getElementsByTagName('answer')[0].innerHTML;
+  var nopciones;
+  var inpt;
+  document.getElementById('q_01').innerHTML=xmlDoc.getElementsByTagName("title")[4].innerHTML;
+  answRadio1 = xmlDoc.getElementById("q_01").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
+  select=document.getElementById("q1");
+  nopciones = xmlDoc.getElementById("q_01").getElementsByTagName("option").length;
+  for (i = 0; i < nopciones; i++)
+  { 
+    inpt = document.createElement("input");
+    inpt.type = xmlDoc.getElementsByTagName("type")[4].innerHTML;
+    inpt.value=i+1;
+    inpt.name=inpt.type;
+    select.appendChild(inpt);
+    select.innerHTML += xmlDoc.getElementById("q_01").getElementsByTagName("option")[i].innerHTML;
+    select.innerHTML+="<br/>";
+  } 
 //end of radio's
 //TEXT
 document.getElementById("q3").innerHTML = xmlDoc.getElementsByTagName("title")[2].innerHTML;
@@ -211,20 +207,6 @@ function ponerDatosCheckbox(tituloCheckbox, IDposicion, opciones, divID) {
     }
 }
 
-function ponerDatosRadio(tituloRadio, IDposicion, opciones, divID) {
-    document.getElementById(IDposicion).innerHTML = tituloRadio;
-    var radioContainer = document.getElementById(divID);
-    var inpt;
-     for (i = 0; i < 4; i++){ 
-    inpt = document.createElement("input");
-    inpt.type = document.getElementsByTagName("type")[4].innerHTML;
-    inpt.value=i+1;
-    inpt.name=inpt.type;
-    select.appendChild(inpt);
-    select.innerHTML += document.getElementById(divID).getElementsByTagName("option")[i].innerHTML;
-    select.innerHTML+="<br/>";
-  } 
-}
 
 //****************************************************************************************************
 //implementación de la corrección
