@@ -97,7 +97,7 @@ function gestionarXml(contXml){
 
   /*text2*/
   document.getElementById("q04").innerHTML = xmlDoc.getElementsByTagName("title")[3].innerHTML;
-  answText1 = xmlDoc.getElementById("q_04").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
+  answText2 = xmlDoc.getElementById("q_04").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select= document.getElementById("in_4");
   var inpt = document.createElement("input");
   inpt.type = xmlDoc.getElementsByTagName("type")[3].innerHTML;
@@ -109,7 +109,7 @@ function gestionarXml(contXml){
   document.getElementById('q05').innerHTML = xmlDoc.getElementsByTagName("title")[4].innerHTML;
   answCheck1 = xmlDoc.getElementById("q_05").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select= document.getElementById("in_5");
-  nopciones = xmlDoc.getElementById("q_05").getElementsByTagName("option").length;
+  var nopciones = xmlDoc.getElementById("q_05").getElementsByTagName("option").length;
   for (i = 0; i < nopciones; i++)
   { 
     inpt = document.createElement("input");
@@ -132,7 +132,7 @@ function gestionarXml(contXml){
   document.getElementById('q06').innerHTML = xmlDoc.getElementsByTagName("title")[5].innerHTML;
   answCheck2 = xmlDoc.getElementById("q_06").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select= document.getElementById("in_6");
-  nopciones = xmlDoc.getElementById("q_06").getElementsByTagName("option").length;
+  var nopciones = xmlDoc.getElementById("q_06").getElementsByTagName("option").length;
   for (i = 0; i < nopciones; i++)
   { 
     inpt = document.createElement("input");
@@ -189,7 +189,7 @@ function gestionarXml(contXml){
     option.value=i+1;
     select.appendChild(option);
   } 
-   /*Pregunta tipo select 'multiple' nº 2.*/
+     /*Pregunta tipo select 'multiple' nº 2.*/
   document.getElementById("q10").innerHTML = xmlDoc.getElementsByTagName("title")[9].innerHTML;
   for (i = 0; i < nres; i++)
   {
@@ -198,13 +198,13 @@ function gestionarXml(contXml){
   select = document.getElementById("in_10");
   select.multiple = true;    
   var nopciones = xmlDoc.getElementById("q_10").getElementsByTagName("option").length;
-  for (i = 0; i < nopciones; i++)
-  { 
+  for (i = 0; i < nopciones; i++){ 
     var option = document.createElement("option");
     option.text = xmlDoc.getElementById("q_10").getElementsByTagName("option")[i].innerHTML;
     option.value=i+1;
     select.appendChild(option);
-  }
+  } 
+
 }
 
 function corregirRadio1(){
