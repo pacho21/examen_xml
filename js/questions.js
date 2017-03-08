@@ -56,7 +56,7 @@ function gestionarXml(contXml){
     inpt.value=i+1;
     inpt.name=inpt.type;
     select.appendChild(inpt);
-    select.innerHTML += xmlDoc.getElementById("q01").getElementsByTagName("option")[i].innerHTML;
+    select.innerHTML += xmlDoc.getElementById("q_01").getElementsByTagName("option")[i].innerHTML;
     select.innerHTML+="<br/>";
   } 
   
@@ -72,7 +72,7 @@ function gestionarXml(contXml){
     inpt.value=i+1;
     inpt.name=inpt.type;
     select.appendChild(inpt);
-    select.innerHTML += xmlDoc.getElementById("q01").getElementsByTagName("option")[i].innerHTML;
+    select.innerHTML += xmlDoc.getElementById("q_02").getElementsByTagName("option")[i].innerHTML;
     select.innerHTML+="<br/>";
   }  
 }
