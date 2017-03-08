@@ -85,7 +85,7 @@ function corregirRadio1()
   {
     if(opt[i].checked) {r=i;}
   }
-  if(r==res_rad_1) {alert("Nº 1: <b>Correcto!</b>"); nota +=1;}
+  if(r==answRadio1) {alert("Nº 1: <b>Correcto!</b>"); nota +=1;}
   else {alert("Nº 1: <b>Respuesta incorrecta</b>");}
 }
 
