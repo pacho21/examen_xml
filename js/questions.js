@@ -90,7 +90,7 @@ function gestionarXml(contXml){
   answText1 = xmlDoc.getElementById("q_03").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select= document.getElementById("in_3");
   var inpt = document.createElement("input");
-  inpt.type = xmlDoc.getElementsByTagName("type")[0].innerHTML;
+  inpt.type = xmlDoc.getElementsByTagName("type")[2].innerHTML;
   inpt.name = "text1";
   inpt.autocomplete="off";
   select.appendChild(inpt);
@@ -100,7 +100,7 @@ function gestionarXml(contXml){
   answText1 = xmlDoc.getElementById("q_04").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select= document.getElementById("in_4");
   var inpt = document.createElement("input");
-  inpt.type = xmlDoc.getElementsByTagName("type")[0].innerHTML;
+  inpt.type = xmlDoc.getElementsByTagName("type")[3].innerHTML;
   inpt.name = "text2";
   inpt.autocomplete="off";
   select.appendChild(inpt);
@@ -189,7 +189,7 @@ function gestionarXml(contXml){
     option.value=i+1;
     select.appendChild(option);
   } 
-     /*Pregunta tipo select 'multiple' nº 2.*/
+   /*Pregunta tipo select 'multiple' nº 2.*/
   document.getElementById("q10").innerHTML = xmlDoc.getElementsByTagName("title")[9].innerHTML;
   for (i = 0; i < nres; i++)
   {
@@ -198,13 +198,13 @@ function gestionarXml(contXml){
   select = document.getElementById("in_10");
   select.multiple = true;    
   var nopciones = xmlDoc.getElementById("q_10").getElementsByTagName("option").length;
-  for (i = 0; i < nopciones; i++){ 
+  for (i = 0; i < nopciones; i++)
+  { 
     var option = document.createElement("option");
     option.text = xmlDoc.getElementById("q_10").getElementsByTagName("option")[i].innerHTML;
     option.value=i+1;
     select.appendChild(option);
-  } 
-
+  }
 }
 
 function corregirRadio1(){
