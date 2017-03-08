@@ -190,10 +190,10 @@ function gestionarXml(contXml){
     select.appendChild(option);
   } 
      /*Pregunta tipo select 'multiple' nº 2.*/
-  document.getElementById("q10").innerHTML = xmlDoc.getElementsByTagName("title")[8].innerHTML;
+  document.getElementById("q10").innerHTML = xmlDoc.getElementsByTagName("title")[9].innerHTML;
   for (i = 0; i < nres; i++)
   {
-    answMult1[i] = xmlDoc.getElementById("q_10").getElementsByTagName("answer")[i].innerHTML;
+    answMult2[i] = xmlDoc.getElementById("q_10").getElementsByTagName("answer")[i].innerHTML;
   }
   select = document.getElementById("in_10");
   select.multiple = true;    
