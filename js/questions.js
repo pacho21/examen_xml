@@ -19,7 +19,7 @@ var answMult2 = [];
 window.onload = function(){ 
 
  //CORREGIR al apretar el botón
- formElement=document.getElementById("butCorregir");
+ formElement=document.getElementById("comp");
   formElement.onclick=function(){
     inicializar();
     corregirRadio1();
