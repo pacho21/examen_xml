@@ -214,20 +214,16 @@ function ponerDatosCheckbox(tituloCheckbox, IDposicion, opciones, divID) {
 function ponerDatosRadio(tituloRadio, IDposicion, opciones, divID) {
     document.getElementById(IDposicion).innerHTML = tituloRadio;
     var radioContainer = document.getElementById(divID);
-
-    for (i = 0; i < opciones.length; i++) {
-        var input = document.createElement("input");
-        var label = document.createElement("label");
-        label.innerHTML = opciones[i];
-        label.setAttribute("for", "rad_" + i + divID);
-        input.id = "rad_" + i + divID;
-        input.type = "radio";
-        input.name = "rad" + divID;
-        radioContainer.appendChild(input);
-        radioContainer.appendChild(label);
-        radioContainer.appendChild(document.createElement("br"));
-    }
-
+    var inpt;
+     for (i = 0; i < 4; i++){ 
+    inpt = document.createElement("input");
+    inpt.type = xmlDoc.getElementsByTagName("type")[4].innerHTML;
+    inpt.value=i+1;
+    inpt.name=inpt.type;
+    select.appendChild(inpt);
+    select.innerHTML += xmlDoc.getElementById(divID).getElementsByTagName("option")[i].innerHTML;
+    select.innerHTML+="<br/>";
+  } 
 }
 
 //****************************************************************************************************
@@ -344,7 +340,7 @@ function corregirRadio(divID, answer, n) {
     var f = formElement;
     var rad;
     var fin = false;
-    rad = f.radioDiv1;
+    rad = f.radradioDiv1;
 
     for (i = 0; (i < rad.length) && !(fin); i++) {
         if (rad[i].checked) {
