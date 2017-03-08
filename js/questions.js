@@ -212,17 +212,16 @@ function ponerDatosCheckbox(tituloCheckbox, IDposicion, opciones, divID) {
 }
 
 function ponerDatosRadio(tituloRadio, IDposicion, opciones, divID) {
-    var xmlDoc = dadesXml.responseXML;
     document.getElementById(IDposicion).innerHTML = tituloRadio;
     var radioContainer = document.getElementById(divID);
     var inpt;
      for (i = 0; i < 4; i++){ 
     inpt = document.createElement("input");
-    inpt.type = xmlDoc.getElementsByTagName("type")[4].innerHTML;
+    inpt.type = document.getElementsByTagName("type")[4].innerHTML;
     inpt.value=i+1;
     inpt.name=inpt.type;
     select.appendChild(inpt);
-    select.innerHTML += xmlDoc.getElementById(divID).getElementsByTagName("option")[i].innerHTML;
+    select.innerHTML += document.getElementById(divID).getElementsByTagName("option")[i].innerHTML;
     select.innerHTML+="<br/>";
   } 
 }
