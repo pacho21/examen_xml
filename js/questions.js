@@ -215,7 +215,7 @@ function corregirRadio1(){
     if(opt[i].checked) {r=i;}
   }
   if(r==answRadio1) {darRespuestaHtml("Nº 1: <b>Correcto!</b>"); nota +=1;}
-  else {darRespuestaHtml("Nº 1: <b>Respuesta incorrecta</b>");}
+  else {darRespuestaHtml("Nº 1: Respuesta incorrecta, la respuesta era: "+answRadio1);}
 }
 function corregirRadio2(){
   var r=null;
@@ -225,7 +225,7 @@ function corregirRadio2(){
     if(opt[i].checked) {r=i;}
   }
   if(r==answRadio2) {darRespuestaHtml("Nº 2: <b>Correcto!</b>"); nota +=1;}
-  else {darRespuestaHtml("Nº 2: <b>Respuesta incorrecta</b>");}
+  else {darRespuestaHtml("Nº 2: Respuesta incorrecta, la respuesta era: "+answRadio2);}
 }
 
 function darRespuestaHtml(r){
@@ -251,15 +251,8 @@ function corregirText1(){
     darRespuestaHtml("Nº 3: <b>Correcto!</b>");
     nota +=1;
   }
-  else
-  {
-    if (s.toUpperCase()!=answText1.toUpperCase())
-    {
-      darRespuestaHtml("Nº 3: <b>Respuesta incorrecta</b>");
-    }
-    else
-    {
-      darRespuestaHtml("Nº 3: <b>Respuesta incorrecta</b>");
+  else{
+      darRespuestaHtml("Nº 3:  Respuesta incorrecta, la respuesta era: "+answText1);
     }
   }
 }
@@ -270,15 +263,8 @@ function corregirText2(){
     darRespuestaHtml("Nº 4: <b>Correcto!</b>");
     nota +=1;
   }
-  else
-  {
-    if (s.toUpperCase()!=answText2.toUpperCase())
-    {
-      darRespuestaHtml("Nº 4: <b>Respuesta incorrecta</b>");
-    }
-    else
-    {
-      darRespuestaHtml("Nº 4: <b>Respuesta incorrecta</b>");
+  else{
+      darRespuestaHtml("Nº 4: Respuesta incorrecta, la respuesta era: "+answText2);
     }
   }
 }
@@ -309,7 +295,7 @@ function corregirCheckbox1(){
     }
   }
   if (corr==answCheck1.length) {darRespuestaHtml("Nº 5: <b>Correcto!</b>");}
-  else {darRespuestaHtml("Nº 5: <b>Respuesta incorrecta</b>");}
+  else {darRespuestaHtml("Nº 5:  Respuesta incorrecta, la respuesta era: "+answCheck1);}
 }
 
 function corregirCheckbox2(){
@@ -338,7 +324,7 @@ function corregirCheckbox2(){
     }
   }
   if (corr==answCheck1.length) {darRespuestaHtml("Nº 6: <b>Correcto!</b>");}
-  else {darRespuestaHtml("Nº 6: <b>Respuesta incorrecta</b>");}
+  else {darRespuestaHtml("Nº 6:  Respuesta incorrecta, la respuesta era: "+answCheck2);}
 }
 
 function corregirSelect1(){
@@ -348,7 +334,7 @@ function corregirSelect1(){
     darRespuestaHtml("Nº 7: <b>Correcto!</b>");
     nota +=1;
   }
-  else {darRespuestaHtml("Nº 7: <b>Respuesta incorrecta</b>");}
+  else {darRespuestaHtml("Nº 7:  Respuesta incorrecta, la respuesta era: "+answSelect1);}
 }
 
 function corregirSelect2(){
@@ -358,7 +344,7 @@ function corregirSelect2(){
     darRespuestaHtml("Nº 8: <b>Correcto!</b>");
     nota +=1;
   }
-  else {darRespuestaHtml("Nº 8: <b>Respuesta incorrecta</b>");}
+  else {darRespuestaHtml("Nº 8:  Respuesta incorrecta, la respuesta era: "+answSelect2);}
 }
 
 function corregirMulti1(){
@@ -386,7 +372,7 @@ function corregirMulti1(){
     }
   }
   if (corr==answMult1.length) {darRespuestaHtml("Nº 9: <b>Correcto!</b>");}
-  else {darRespuestaHtml("Nº 9: <b>Respuesta incorrecta</b>");}
+  else {darRespuestaHtml("Nº 9:  Respuesta incorrecta, la respuesta era: "+answMult1);}
 }
 
 function corregirMulti2(){
@@ -414,5 +400,5 @@ function corregirMulti2(){
     }
   }
   if (corr==answMult2.length) {darRespuestaHtml("Nº 10: <b>Correcto!</b>");}
-  else {darRespuestaHtml("Nº 10: <b>Respuesta incorrecta</b>");}
+  else {darRespuestaHtml("Nº 10:  Respuesta incorrecta, la respuesta era: "+answMult2);}
 }

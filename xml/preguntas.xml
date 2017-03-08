@@ -75,22 +75,19 @@
   <type>multiple</type>
   <title>9.-¿Cuál de estas son marcas de coche? </title>
   <option>a) Audi </option>
-  <option>b) Mercedes </option>
+  <option>b) Windows </option>
   <option>c) Benz </option>
-  <option>d) Suzuki </option>
+  <option>d) Apple </option>
   <answer>0</answer>
-  <answer>1</answer>
-  <answer>3</answer>
 </question>  	
 
 <question id="q_10">
   <type>multiple</type>
   <title>10.-¿Cuáles de estos nombres pertenecen a actores?</title>
   <option>a) Mariano Rajoy</option>
-  <option>b) Nacho Vidal</option>
-  <option>c) Penélope Cruz</option>
+  <option>b) Penélope Cruz</option>
+  <option>c) Cristiano Ronaldo</option>
   <option>d) Florentino Pérez</option>
   <answer>1</answer>
-  <answer>2</answer>
 </question>  	
 </questions>
