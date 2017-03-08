@@ -47,7 +47,7 @@ function gestionarXml(dadesXml){
 //Radio1
   var nopciones;
   var inpt;
-  document.getElementById('q_01').innerHTML=xmlDoc.getElementsByTagName("title")[4].innerHTML;
+  document.getElementById('q_01').innerHTML=xmlDoc.getElementsByTagName("title")[0].innerHTML;
   answRadio1 = xmlDoc.getElementById("q_01").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select=document.getElementById("q1");
   nopciones = xmlDoc.getElementById("q_01").getElementsByTagName("option").length;
