@@ -47,7 +47,7 @@ function gestionarXml(contXml){
   var inpt = document.createElement("input");
   document.getElementById('q1').innerHTML=xmlDoc.getElementsByTagName("title")[0].innerHTML;
   answRadio1 = xmlDoc.getElementById("q_01").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
-  select=document.getElementById("radioDiv1");
+  select=document.getElementById("rad_1");
   nopciones = xmlDoc.getElementById("q_01").getElementsByTagName("option").length;
   for (i = 0; i < nopciones; i++)
   { 
@@ -63,7 +63,7 @@ function gestionarXml(contXml){
   /*radio2*/
   document.getElementById('q2').innerHTML=xmlDoc.getElementsByTagName("title")[1].innerHTML;
   answRadio2 = xmlDoc.getElementById("q_02").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
-  select=document.getElementById("radioDiv2");
+  select=document.getElementById("rad_2");
   nopciones = xmlDoc.getElementById("q_02").getElementsByTagName("option").length;
   for (i = 0; i < nopciones; i++)
   { 
@@ -80,7 +80,7 @@ function gestionarXml(contXml){
 function corregirRadio1()
 {
   var r=null;
-  var opt = document.getElementById("radioDiv1").elements["radio"];
+  var opt = document.getElementById("rad_1").elements["radio"];
   for (i = 0; i < opt.length; i++)
   {
     if(opt[i].checked) {r=i;}
