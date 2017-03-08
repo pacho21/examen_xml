@@ -8,7 +8,7 @@
     <option>b) Tom </option>
     <option>c) Doraemon </option>
     <option>d) Hello Kitty</option>
-  <answer>0</answer>
+  <answer>1</answer>
 </question>
 
 <question id="q_02">
@@ -18,7 +18,7 @@
   <option>b) Marco </option>
   <option>c) Tom </option>
   <option>d) Nadie persigue a Jerry </option>
-  <answer>2</answer>
+  <answer>3</answer>
 </question>
 
 <question id="q_03">
@@ -39,7 +39,7 @@
   <option>a) Sí </option>
   <option>b) No </option>
   <option>c) No lo sé porque soy un fracasado que toma té </option>
-  <answer>1</answer>
+  <answer>2</answer>
 </question>
 
 <question id="q_06">
@@ -48,7 +48,7 @@
   <option>a) El cambio climático</option>
   <option>b) El matrimonio</option>
   <option>c) Las enfermedades</option>
-  <answer>1</answer>
+  <answer>2</answer>
 </question>
 
 <question id="q_07">
@@ -58,7 +58,7 @@
   <option>b) Donuts </option>
   <option>c) Audi </option>
   <option>d) Mc Donalds </option>
-  <answer>0</answer>
+  <answer>1</answer>
 </question>
 
 <question id="q_08">
@@ -68,7 +68,7 @@
   <option>b) Abrir los ojos </option>
   <option>c) Dormirse otra vez</option>
   <option>d) Apagar la alarma </option>
-  <answer>1</answer>
+  <answer>2</answer>
 </question>
 
 <question id="q_09">
@@ -78,9 +78,9 @@
   <option>b) Mercedes </option>
   <option>c) Benz </option>
   <option>d) Suzuki </option>
-  <answer>0</answer>
   <answer>1</answer>
-  <answer>3</answer>
+  <answer>2</answer>
+  <answer>4</answer>
 </question>  	
 
 <question id="q_10">
@@ -90,7 +90,7 @@
   <option>b) Nacho Vidal</option>
   <option>c) Penélope Cruz</option>
   <option>d) Florentino Pérez</option>
-  <answer>1</answer>
   <answer>2</answer>
+  <answer>3</answer>
 </question>  	
 </questions>
