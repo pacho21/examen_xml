@@ -354,7 +354,7 @@ function corregirRadio(divID, answer, n) {
             break;
     }
 
-    for (i = 0; (i < rad.length) && !(fin); i++) {
+    for (i = 0; (i < 4) && !(fin); i++) {
         if (rad[i].checked) {
             fin = true;
             if (i == answer) {
