@@ -6,69 +6,89 @@
  <link rel='stylesheet' media='screen and (max-width: 960px)' href='css/m.css'>
 <script src='js/questions.js'></script>
 </head>
+
 <body>
 
- <form id='myform'>
- 	<div class="all">
-         <h3 id="q1">1</h3>
-        <div id="radioDiv1">
-        	<form id="rad_1"></form>
-        </div>
-     </div>
- <br><br>
- 
-  <div class="all">
-                <h3 id="q2">2</h3>
-                <div id="radioDiv2">
-                	<form id="rad_2"></form>
-                </div>
-   </div>
-     <!-- Text -->
-            <div class="all">
-                <h3 id="q3">3</h3>
-                <input type='text' id="text1">
-            </div>
+		<!--Pregunta tipo RADIO SELECT-->
+	<div>
+		<h5>PREGUNTA 1</h5>
+		<p id='q01'></p>		
+		<form id="in_1"></form>
+	</div>
 
-            <div class="all">
-                <h3 id="q4">4</h3>
-                <input type='text' id="text2">
-            </div>
+		<!--Pregunta tipo RADIO SELECT-->
+	<div>
+		<h5>PREGUNTA 2</h5>
+		<p id='q02'></p>		
+		<form id="in_2"></form>
+	</div>
 
-            <!-- Checkbox -->
-            <div class="all">
-                <h3 id="q5">5</h3>
-                <div id="checkBoxDiv1"></div>
-            </div>
+		<!--Pregunta tipo INPUT TEXT-->
+	<div>
+		<h5>PREGUNTA 3</h5>
+		<p id='q03'></p>
+		<form id="in_3"></form>
+	</div>
 
-            <div class="all">
-                <h3 id="q6">6</h3>
-                <div id="checkBoxDiv2"></div>
-            </div>
+		<!--Pregunta tipo INPUT TEXT-->
+	<div>
+		<h5>PREGUNTA 4</h5>
+		<p id='q04'></p>
+		<form id="in_4"></form>
+	</div>
 
-            <!-- Select -->
-            <div c
-            lass="all">
-                <h3 id="q7">7</h3>
-                <select id="sel1"></select>
-            </div>
+		<!--Pregunta tipo CHECKBOX SELECT-->
+	<div>
+		<h5>PREGUNTA 5</h5>
+		<p id='q05'></p>
+		<form id="in_5"></form>
+	</div>
 
-            <div class="all">
-                <h3 id="q8">8</h3>
-                <select id="sel2"></select>
-            </div>
+	<!--Pregunta tipo CHECKBOX SELECT-->
+	<div>
+		<h5>PREGUNTA 6</h5>
+		<p id='q06'></p>
+		<form id="in_6"></form>
+	</div>
 
-            <!-- Multiple -->
-            <div class="all">
-                <h3 id="q9">9</h3>
-                <select id="mult1" multiple></select>
-            </div>
+		<!--Pregunta tipo SELECT-->
+	<div>
+		<h5>PREGUNTA 7</h5>
+		<p id='q07'></p>
+		<form>
+			<select id="in_7"></select>
+		</form>
+	</div>
 
-            <div class="all">
-                <h3 id="q10">10</h3>
-                <select id="mult2" multiple></select>
-            </div>
-  <input id="butCorregir" type='button' value="CORREGIR">
-</form>
+	<!--Pregunta tipo SELECT-->
+	<div>
+		<h5>PREGUNTA 7</h5>
+		<p id='q08'></p>
+		<form>
+			<select id="in_8"></select>
+		</form>
+	</div>
+
+	<!--Pregunta tipo SELECT MULTIPLE-->
+	<div>
+		<h5>PREGUNTA 9</h5>
+		<p id='q09'></p>
+		<form>
+			<select id="in_9"></select>
+		</form>
+	</div>
+
+	<!--Pregunta tipo SELECT MULTIPLE-->
+	<div>
+		<h5>PREGUNTA 10</h5>
+		<p id='q010'></p>
+		<form>
+			<select id="in_10"></select>
+		</form>
+	</div>
+	<!--Botón que comprueba los resultados al pulsar-->
+	<br/><input id="comp" class="comp" type="button" onclick="" value="Comprobar resultados"><br/>
+
 
  <div id='resultadosDiv'></div>
  
