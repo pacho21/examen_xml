@@ -78,9 +78,9 @@
   <option>b) Mercedes </option>
   <option>c) Benz </option>
   <option>d) Suzuki </option>
+  <answer>0</answer>
   <answer>1</answer>
-  <answer>2</answer>
-  <answer>4</answer>
+  <answer>3</answer>
 </question>  	
 
 <question id="q_10">
@@ -90,7 +90,7 @@
   <option>b) Nacho Vidal</option>
   <option>c) Penélope Cruz</option>
   <option>d) Florentino Pérez</option>
+  <answer>1</answer>
   <answer>2</answer>
-  <answer>3</answer>
 </question>  	
 </questions>
