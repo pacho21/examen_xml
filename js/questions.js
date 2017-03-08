@@ -21,11 +21,8 @@ window.onload = function(){
  //CORREGIR al apretar el botón
  formElement=document.getElementById("butCorregir");
   formElement.onclick=function(){
-   inicializar();
-   
-    corregir();
-    presentarNota();
-
+    inicializar();
+    corregirRadio1();
  }
  
  //LEER XML de xml/preguntas.xml
@@ -78,4 +75,22 @@ function gestionarXml(contXml){
     select.innerHTML += xmlDoc.getElementById("q_02").getElementsByTagName("option")[i].innerHTML;
     select.innerHTML+="<br/>";
   } 
+}
+
+function corregirRadio1()
+{
+  var r=null;
+  var opt = document.getElementById("radioDiv1").elements["radio"];
+  for (i = 0; i < opt.length; i++)
+  {
+    if(opt[i].checked) {r=i;}
+  }
+  if(r==answRadio1) {darRespuestaHtml("Nº 1: <b>Correcto!</b>"); nota +=1;}
+  else {darRespuestaHtml("Nº 1: <b>Respuesta incorrecta</b>");}
+}
+
+function inicializar(){
+  var v=document.getElementById("resultadosDiv");
+  v.innerHTML="";
+  nota=0.0;
 }
