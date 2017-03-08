@@ -340,17 +340,32 @@ function corregirCheckbox(qn,n,ans){
 }
 
 
-function corregirRadio(qn,n,ans){
-  var r=null;
-  var opt = document.getElementById(qn).elements["radio"];
-  for (i = 0; i < opt.length; i++)
-  {
-    if(opt[i].checked) {r=i;}
-  }
-  if(r==ans) {darRespuestaHtml("Nº "+n+": <b>Correcto!</b>"); nota +=1;}
-  else {darRespuestaHtml("Nº "+n+": <b>Respuesta incorrecta</b>");}
-}
+function corregirRadio(divID, answer, n) {
+    var f = formElement;
+    var rad;
+    var fin = false;
 
+    switch (divID) {
+        case "radradioDiv1":
+            rad = f.radradioDiv1;
+            break;
+        case "radradioDiv2":
+            rad = f.radradioDiv2;
+            break;
+    }
+
+    for (i = 0; (i < rad.length) && !(fin); i++) {
+        if (rad[i].checked) {
+            fin = true;
+            if (i == answer) {
+                darRespuestaHtml("Nº "+n+": <b>Correcto!</b>");
+                nota += 1;
+            } else {
+                darRespuestaHtml("Nº "+n+": <b>Correcto!</b>");
+            }
+        }
+    }
+}
 
 
 function darRespuestaHtml(r){
@@ -365,8 +380,8 @@ function presentarNota(){
 }
 
 function corregir(){
-    corregirRadio(q1,1,answRadio1);
-    corregirRadio(q2,2,answRadio2);
+    corregirRadio("radradioDiv1", answRadio1, 1);
+    corregirRadio("radradioDiv2", answRadio2, 2);
     corregirText(q3,3,answText1);
     corregirText(q4,4,answText2);
     corregirCheckbox(q5,5,answCheck1);
