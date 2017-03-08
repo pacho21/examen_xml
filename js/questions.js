@@ -254,8 +254,8 @@ function corregirText1(){
   else{
       darRespuestaHtml("Nº 3:  Respuesta incorrecta, la respuesta era: "+answText1);
     }
-  }
 }
+
 function corregirText2(){
   var s = document.getElementById("in_4").getElementsByTagName("input")[0].value;
   if (s.toUpperCase()==answText2.toUpperCase())
@@ -266,8 +266,8 @@ function corregirText2(){
   else{
       darRespuestaHtml("Nº 4: Respuesta incorrecta, la respuesta era: "+answText2);
     }
-  }
 }
+
 
 function corregirCheckbox1(){
   var v=[];
