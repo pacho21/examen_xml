@@ -344,17 +344,9 @@ function corregirRadio(divID, answer, n) {
     var f = formElement;
     var rad;
     var fin = false;
+    rad = f.radradioDiv1;
 
-    switch (divID) {
-        case "radradioDiv1":
-            rad = f.radradioDiv1;
-            break;
-        case "radradioDiv2":
-            rad = f.radradioDiv2;
-            break;
-    }
-
-    for (i = 0; (i < 4) && !(fin); i++) {
+    for (i = 0; (i < rad.length) && !(fin); i++) {
         if (rad[i].checked) {
             fin = true;
             if (i == answer) {
