@@ -57,7 +57,7 @@ function gestionarXml(contXml){
     inpt = document.createElement("input");
     inpt.type = xmlDoc.getElementsByTagName("type")[0].innerHTML;
     inpt.value=i+1;
-    inpt.name=inpt.type;
+    inpt.name=inpt.type+"q1";
     select.appendChild(inpt);
     select.innerHTML += xmlDoc.getElementById("q_01").getElementsByTagName("option")[i].innerHTML;
     select.innerHTML+="<br/>";
@@ -65,7 +65,7 @@ function gestionarXml(contXml){
   
   /*radio2*/
   document.getElementById('q2').innerHTML=xmlDoc.getElementsByTagName("title")[1].innerHTML;
-  answRadio1 = xmlDoc.getElementById("q_02").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
+  answRadio2 = xmlDoc.getElementById("q_02").getElementsByTagName("answer")[0].innerHTML;/*Guardamos respuesta/s correctas para comprobación posterior.*/
   select=document.getElementById("radioDiv2");
   nopciones = xmlDoc.getElementById("q_02").getElementsByTagName("option").length;
   for (i = 0; i < nopciones; i++)
@@ -73,7 +73,7 @@ function gestionarXml(contXml){
     inpt = document.createElement("input");
     inpt.type = xmlDoc.getElementsByTagName("type")[1].innerHTML;
     inpt.value=i+1;
-    inpt.name=inpt.type;
+    inpt.name=inpt.type+"q2";
     select.appendChild(inpt);
     select.innerHTML += xmlDoc.getElementById("q_02").getElementsByTagName("option")[i].innerHTML;
     select.innerHTML+="<br/>";
