@@ -58,7 +58,7 @@
   <option>b) Donuts </option>
   <option>c) Audi </option>
   <option>d) Mc Donalds </option>
-  <answer>0</answer>
+  <answer>1</answer>
 </question>
 
 <question id="q_08">
@@ -68,7 +68,7 @@
   <option>b) Abrir los ojos </option>
   <option>c) Dormirse otra vez</option>
   <option>d) Apagar la alarma </option>
-  <answer>1</answer>
+  <answer>2</answer>
 </question>
 
 <question id="q_09">
