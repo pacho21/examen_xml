@@ -7,7 +7,7 @@
 4. Dar un resultado final.
 
 ## Correcciones y mejoras:
-### No permite corregir más de una vez.
-### Cambiamos de color según si el usuario ha aprobado o no.
-### Se muestra una ventana de confirmación si se pulsa el botón de corregir.
-### Checkbox y radio más grandes en la versión para móviles.
+1. No permite corregir más de una vez.
+2. Cambiamos de color según si el usuario ha aprobado o no.
+3. Se muestra una ventana de confirmación si se pulsa el botón de corregir.
+4. Checkbox y radio más grandes en la versión para móviles.
