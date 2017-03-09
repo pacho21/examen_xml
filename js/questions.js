@@ -50,7 +50,7 @@ window.onload = function(){
    gestionarXml(this);
   }
  };
- xhttp.open("GET", "https://rawgit.com/pacho21/examen_xml/master/xml/preguntas.xml", true);
+ xhttp.open("GET", "/xml/preguntas.xml", true);
  xhttp.send();
 }
 
