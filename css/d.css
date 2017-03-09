@@ -1,7 +1,81 @@
 body,html{margin:0px}
-body{width:70%;padding-left:15%;padding-right:15%}
-body,input,select,label{font-size:3vw}
-h3{font-size:5vw}
+body{width:70%;padding-left:15%;padding-right:15%;background-image: url(../img/background.jpg)}
+body,input,select,label{font-size:2vw}
+h3{font-size:2vw}
 input,select{width:50%}
 input[type=checkbox]{width:5%;zoom:1.5}
-form{background-color:aliceblue;padding:3%}
+input[type=radio]{width:5%;zoom:1.5}
+
+
+form{
+	background-color:aliceblue;
+	padding:3%;
+	border: 1px solid black;
+	text-align: left;
+}
+
+form:hover{
+	  box-shadow: 0.6vw 0.6vw 0.2vw #0F2202;
+	border:5px solid yellow;
+}
+
+div{
+	text-align: center;
+	margin-top:5%;
+	background-color: #c0c6cc;
+	border:1px;
+	box-shadow: 0.6vw 0.6vw 0.2vw #0F2202;
+}
+p{
+	padding-top:0%;
+	margin-bottom: 2%;
+}
+#comp:hover{
+		border:3px solid red;
+		margin-bottom:2%;
+
+}
+#return{
+			
+}
+#return:hover{
+		border:3px solid red;
+		margin-bottom:2%;
+
+	}
+
+
+#ques{
+	margin:0;
+	border: 2px solid black;
+    border-radius: 5px;
+}
+
+#resultadosDiv{
+	text-align: left;
+	padding-left: 1%;
+	border-radius: 5px;
+}
+#logo{
+	display:none;
+}
+#header h3 {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-size: 3.5vw;
+    line-height: 230%;
+}
+#cabecera{
+ 	display: table;
+    background: #c0c6cc;
+    width: 100%;
+    height: 20%;
+    border: solid 2px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0.6vw 0.6vw 0.2vw #0F2202;
+    margin-top: 2%;
+    background-color: #c0c6cc;
+}

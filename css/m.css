@@ -1,7 +1,81 @@
 body,html{margin:0px}
-body{width:96%;padding-left:2%;padding-right:2%}
+body{width:70%;padding-left:15%;padding-right:15%;background-image: url(../img/background.jpg)}
 body,input,select,label{font-size:3vw}
 h3{font-size:5vw}
-input,select{width:80%}
-input[type=checkbox]{width:5%;zoom:1.5}
-form{background-color:aliceblue;padding:1%}
+input,select{width:50%,font-size:4vw;}
+input[type=checkbox]{width:;zoom:1.5}
+input[type=radio]{width:;zoom:1.5}
+
+select{font-size: 4vw;}
+form{
+	background-color:aliceblue;
+	padding:3%;
+	border: 1px solid black;
+	text-align: left;
+	font-size: 5vw;
+}
+
+form:hover{
+	border:5px solid yellow;
+}
+
+div{
+	text-align: center;
+	margin-top:5%;
+	background-color: #c0c6cc;
+	border:1px;
+}
+p{
+	font-size: 4vw;
+	padding-top:0%;
+	margin-bottom: 2%;
+}
+#comp:hover{
+		border:5px solid grey;
+		margin-bottom:2%;
+		font-size: 5vw;
+
+}
+#comp{font-size: 5vw;}
+#ques{
+	margin:0;
+	border: 2px solid black;
+    border-radius: 5px;
+}
+
+#resultadosDiv{
+	text-align: left;
+	padding-left: 1%;
+	border-radius: 5px;
+}
+#return:hover{
+		border:5px solid grey;
+		margin-bottom:2%;
+		font-size: 4vw;
+
+}
+#return{font-size: 5vw;margin-left:5%}
+
+#logo{
+	display:none;
+	position:fixed;
+	width: 10%;
+	height: 10%;	
+	left:0px;
+}
+#cabecera{
+ 	display: table;
+    background: #c0c6cc;
+    width: 100%;
+    height: 20%;
+    border: solid 2px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0.6vw 0.6vw 0.2vw #0F2202;
+    margin-top: 2%;
+    background-color: #c0c6cc;
+}
+#logo1{
+	width:50%;
+	height: 50%;
+}

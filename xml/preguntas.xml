@@ -38,7 +38,7 @@
   <title>5.-¿Existe vida antes del café?:</title>
   <option>a) Sí </option>
   <option>b) No </option>
-  <option>c) No lo sé porque tomo té </option>
+  <option>c) No lo sé porque soy un fracasado que toma té </option>
   <answer>1</answer>
 </question>
 
@@ -58,7 +58,7 @@
   <option>b) Donuts </option>
   <option>c) Audi </option>
   <option>d) Mc Donalds </option>
-  <answer>1</answer>
+  <answer>0</answer>
 </question>
 
 <question id="q_08">
@@ -68,7 +68,7 @@
   <option>b) Abrir los ojos </option>
   <option>c) Dormirse otra vez</option>
   <option>d) Apagar la alarma </option>
-  <answer>2</answer>
+  <answer>1</answer>
 </question>
 
 <question id="q_09">
