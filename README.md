@@ -1,13 +1,20 @@
-# Examen Autocorregido
+# noticiasweb
+Pagina web de noticias con noticias autorecargables mediante JSON.
+Fotos del cuaderno (previo diseño que he modificado despúes de la presentación delante de los clientes).
+### Web Horizontal
+Presentación al cargar:
 
-## Es un proyecto basado en JavaScript, XML, HTML y CSS, donde la principal función de esta aplicación es:
-1. Leer los datos de un archivo XML externo al HTML.
-2. Insertar (rellenar) los datos leidos al HTML.
-3. Corregir las respuestas introducidas por el usuarioa comparandolas con el XML.
-4. Dar un resultado final.
+[Imagen](http://i.imgur.com/oYJRXlw.jpg)
 
-## Correcciones y mejoras:
-1. No permite corregir más de una vez.
-2. Cambiamos de color según si el usuario ha aprobado o no.
-3. Se muestra una ventana de confirmación si se pulsa el botón de corregir.
-4. Checkbox y radio más grandes en la versión para móviles.
+Presentación de la noticia:
+
+[Imagen](http://i.imgur.com/XXtY5UM.jpg)
+
+### Web Vertical 
+Presentación al cargar:
+
+[Imagen](http://i.imgur.com/Pbqtvzz.jpg)
+
+Presentación de la noticia:
+
+[Imagen](http://i.imgur.com/nmypSqj.jpg)
